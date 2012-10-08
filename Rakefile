@@ -20,6 +20,9 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
+APP_RAKEFILE = File.expand_path("./dummy/Rakefile")
+load 'rails/tasks/engine.rake'
+
 require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new :default
