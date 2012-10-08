@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008172401) do
+ActiveRecord::Schema.define(:version => 20121008183146) do
+
+  create_table "fundraiser_settings", :force => true do |t|
+    t.string "var"
+    t.text   "value"
+  end
+
+  add_index "fundraiser_settings", ["var"], :name => "index_fundraiser_settings_on_var"
 
   create_table "fundraiser_users", :force => true do |t|
     t.string   "email",              :default => "",    :null => false

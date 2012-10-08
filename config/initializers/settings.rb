@@ -1,0 +1,1 @@
+Settings.load_from_persistance

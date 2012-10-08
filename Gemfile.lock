@@ -1,9 +1,19 @@
+GIT
+  remote: git://github.com/dabit/persistent_settings.git
+  revision: b4fc00e8ff0807ade6cb6182f6b19f0da13164f1
+  branch: 1-3
+  specs:
+    persistent_settings (1.2.0)
+      activerecord (~> 3.0)
+      railties (~> 3.0)
+
 PATH
   remote: .
   specs:
     fundraiser (0.0.1)
       devise (~> 2.1.2)
       haml-rails (~> 0.3.5)
+      persistent_settings
       rails (~> 3.2.8)
 
 GEM
@@ -148,5 +158,6 @@ DEPENDENCIES
   capybara
   fundraiser!
   jquery-rails
+  persistent_settings!
   rspec-rails
   sqlite3
