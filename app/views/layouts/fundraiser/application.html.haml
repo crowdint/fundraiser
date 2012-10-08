@@ -2,8 +2,12 @@
 %html
   %head
     %title Fundraiser
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css"
     = stylesheet_link_tag    "fundraiser/application", :media => "all"
     = javascript_include_tag "fundraiser/application"
     = csrf_meta_tags
   %body
-    = yield
+    .container
+      .row= render 'navbar'
+      .row= render 'alerts'
+      .row= yield
