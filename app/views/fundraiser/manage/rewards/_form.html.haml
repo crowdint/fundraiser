@@ -1,8 +1,3 @@
-= f.label :title
-= f.text_field :title
-
-= f.label :description
-= f.text_area :description
-
-= f.label :minimum_pledge
-= f.text_field :minimum_pledge
+= bootstrap_text_field(f, :title, "span5")
+= bootstrap_text_area(f, :description, "span5")
+= bootstrap_text_field(f, :minimum_pledge, "span3")

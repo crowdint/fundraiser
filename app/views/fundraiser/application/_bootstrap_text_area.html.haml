@@ -1,0 +1,9 @@
+.control-group
+  = f.label column, :class => "control-label"
+
+  .controls
+    = f.text_area column, :class => input_class, :rows => 10
+    - unless f.object.errors[column].empty?
+      .help-inline.error
+        = f.object.errors[column].join(', ')
+

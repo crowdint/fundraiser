@@ -10,7 +10,7 @@ class Fundraiser::Manage::RewardsController < Fundraiser::ApplicationController
   def create
     @reward = Fundraiser::Reward.new(reward_params)
     if @reward.save
-      redirect_to manage_rewards_path, :notice => "Reward was created succesfully"
+      redirect_to manage_rewards_path, :notice => "Reward was succesfully created"
     else
       render :action => :new
     end

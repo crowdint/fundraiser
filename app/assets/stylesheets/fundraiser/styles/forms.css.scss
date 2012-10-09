@@ -1,0 +1,16 @@
+$error_color: #B94A48;
+
+.field_with_errors {
+  color: $error_color;
+
+  input {
+    border-color: $error_color;
+    color: $error_color;
+  }
+}
+
+.help-inline.error {
+  color: $error_color;
+  font-size: 10px;
+  text-align: right;
+}
