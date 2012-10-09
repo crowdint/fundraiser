@@ -11,7 +11,9 @@ def create_user(manager = false)
   user = Fundraiser::User.new :email => 'manager@example.com'
   user.password = '123456'
   user.password_confirmation = user.password
-  user.is_manager = manager
   user.save!
+
+  user.manager! if manager
+
   user
 end
