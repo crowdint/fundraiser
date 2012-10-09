@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Manage rewards", :type => :integration do
   before do
-    admin_user_is_logged_in
+    manager_user_is_logged_in
   end
 
   describe "create" do
@@ -21,4 +21,17 @@ describe "Manage rewards", :type => :integration do
       page.should have_content '30'
     end
   end
+
+  context "reward exists" do
+    let(:reward) do
+      Fundraiser::Reward.create :title => Faker::Lorem.sentence,
+          :description => Faker::Lorem.paragraph,
+          :minimum_pledge => 30
+    end
+
+    describe "edit" do
+
+    end
+  end
+
 end

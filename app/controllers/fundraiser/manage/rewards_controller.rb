@@ -1,4 +1,4 @@
-class Fundraiser::Manage::RewardsController < Fundraiser::ApplicationController
+class Fundraiser::Manage::RewardsController < Fundraiser::Manage::BaseController
   def index
     @rewards = Fundraiser::Reward.all
   end
