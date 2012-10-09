@@ -1,4 +1,7 @@
-# desc "Explaining what the task does"
-# task :fundraiser do
-#   # Task goes here
-# end
+namespace :fundraiser do
+  namespace :settings do
+    task :init => :environment do
+      Fundraiser::Settings.amazon!
+    end
+  end
+end

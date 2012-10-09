@@ -4,6 +4,8 @@ Fundraiser::Engine.routes.draw do
   root :to => 'home#show'
 
   namespace :manage do
+    resource :settings
+    root :to => redirect('/fundraiser/users/sign_in')
     resources :rewards
   end
 

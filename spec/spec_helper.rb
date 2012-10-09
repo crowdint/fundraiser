@@ -13,6 +13,11 @@ ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("../spec/support/**/*.rb")].each {|f| require f}
 
+ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
+require './dummy/db/schema.rb'
+
+Fundraiser::Settings.amazon!
+
 RSpec.configure do |config|
   # ## Mock Framework
   #

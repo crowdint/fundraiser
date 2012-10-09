@@ -1,0 +1,9 @@
+%h1 Settings
+
+= form_for [ :manage, @settings ], :url => {:controller => :settings, :action => :update }, :method => :put do |f|
+  - Fundraiser::Settings::AMAZON_SETTINGS.each do |setting|
+    = f.label setting
+    = f.text_field setting
+
+  .form-actions
+    = f.submit 'Update', :class => 'btn'
