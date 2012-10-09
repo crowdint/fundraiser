@@ -24,13 +24,31 @@ describe "Manage rewards", :type => :integration do
 
   context "reward exists" do
     let(:reward) do
-      Fundraiser::Reward.create :title => Faker::Lorem.sentence,
+      Fundraiser::Reward.create! :title => Faker::Lorem.sentence,
           :description => Faker::Lorem.paragraph,
           :minimum_pledge => 30
     end
 
     describe "edit" do
+      it "updates the reward" do
+        reward
+        visit fundraiser.manage_rewards_path
 
+        within "#reward_#{reward.id}" do
+          click_link 'Edit'
+        end
+
+        fill_in 'Title'          , :with => 'New Reward Title'
+        fill_in 'Description'    , :with => 'New Reward Description'
+        fill_in 'Minimum pledge' , :with => '50'
+
+        click_button 'Update'
+
+        current_path.should eq fundraiser.manage_rewards_path
+
+        page.should have_content 'New Reward Title'
+        page.should have_content '50'
+      end
     end
   end
 

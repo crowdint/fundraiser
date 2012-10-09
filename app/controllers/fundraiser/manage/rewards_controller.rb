@@ -1,4 +1,6 @@
 class Fundraiser::Manage::RewardsController < Fundraiser::Manage::BaseController
+  before_filter :load_reward, :only => [ :edit, :update ]
+
   def index
     @rewards = Fundraiser::Reward.all
   end
@@ -16,8 +18,23 @@ class Fundraiser::Manage::RewardsController < Fundraiser::Manage::BaseController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @reward.update_attributes(reward_params)
+    	redirect_to fundraiser.manage_rewards_path, :notice => "Reward was succesfully updated"
+    else
+    	render :action => :edit
+    end
+  end
+
   private
   def reward_params
     params[:reward]
+  end
+
+  def load_reward
+    @reward = Fundraiser::Reward.find(params[:id])
   end
 end
