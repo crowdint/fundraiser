@@ -4,5 +4,7 @@ module Fundraiser
 
     validates :title, :presence => true
     validates :minimum_pledge, :numericality => true
+
+    has_many :pledges
   end
 end

@@ -6,4 +6,8 @@ Fundraiser::Engine.routes.draw do
   namespace :manage do
     resources :rewards
   end
+
+  resources :rewards, :only => :index do
+    resources :pledges, :only => [ :new, :create, :show ]
+  end
 end

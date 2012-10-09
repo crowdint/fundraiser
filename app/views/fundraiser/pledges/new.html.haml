@@ -1,0 +1,19 @@
+%h1 Make a pledge
+
+= form_for [ :reward, @pledge ] do |f|
+  = bootstrap_text_field f, :pledge_amount
+  = bootstrap_text_field f, :name
+  = bootstrap_text_field f, :address_line_1
+  = bootstrap_text_field f, :address_line_2
+  = bootstrap_text_field f, :country
+  = bootstrap_text_field f, :state
+  = bootstrap_text_field f, :city
+  = bootstrap_text_field f, :zip_code
+  = bootstrap_text_field f, :phone
+
+  .form-actions
+    = f.submit 'Pledge Now'
+
+.reward
+  %h2= @reward.title
+  %h3= @reward.description

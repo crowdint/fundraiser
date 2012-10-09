@@ -1,0 +1,5 @@
+= content_tag_for :tr, reward do
+  %td= reward.title
+  %td= reward.description
+  %td= link_to 'Pledge', new_reward_pledge_path(reward, :pledge_amount => reward.minimum_pledge),
+      :class => 'btn'
