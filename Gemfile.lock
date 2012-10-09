@@ -19,6 +19,7 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
+    ZenTest (4.8.2)
     actionmailer (3.2.8)
       actionpack (= 3.2.8)
       mail (~> 2.4.4)
@@ -48,6 +49,9 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
+    autotest (4.4.6)
+      ZenTest (>= 4.4.1)
+    autotest-growl (0.2.16)
     bcrypt-ruby (3.0.1)
     builder (3.0.3)
     capybara (1.1.2)
@@ -155,6 +159,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autotest
+  autotest-growl
   capybara
   fundraiser!
   jquery-rails
