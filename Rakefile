@@ -25,6 +25,8 @@ load 'rails/tasks/engine.rake'
 
 require 'rspec/core/rake_task'
 
+task 'db:test:prepare' => 'app:db:test:prepare'
+
 RSpec::Core::RakeTask.new :default
 
 
