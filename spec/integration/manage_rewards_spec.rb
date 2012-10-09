@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe "Manage rewards", :type => :integration do
-  before do
-    manager_user_is_logged_in
-  end
+  context "Manager User" do
+    before do
+      manager_user_is_logged_in
+    end
 
-  describe "create" do
     it "creates a reward" do
       visit fundraiser.manage_rewards_path
 
@@ -20,18 +20,16 @@ describe "Manage rewards", :type => :integration do
       page.should have_content 'Reward Title'
       page.should have_content '30'
     end
-  end
 
-  context "reward exists" do
-    let(:reward) do
-      Fundraiser::Reward.create! :title => Faker::Lorem.sentence,
+    context "reward exists" do
+      let(:reward) do
+        Fundraiser::Reward.create! :title => Faker::Lorem.sentence,
           :description => Faker::Lorem.paragraph,
           :minimum_pledge => 30
-    end
+      end
 
-    before { reward }
+      before { reward }
 
-    describe "edit" do
       it "updates the reward" do
         visit fundraiser.manage_rewards_path
 
@@ -50,9 +48,7 @@ describe "Manage rewards", :type => :integration do
         page.should have_content 'New Reward Title'
         page.should have_content '50'
       end
-    end
 
-    describe "delete" do
       it "deletes the reward" do
         visit fundraiser.manage_rewards_path
 
