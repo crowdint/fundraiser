@@ -1,5 +1,5 @@
 require "autotest/growl"
 
 Autotest.add_hook :initialize do |at|
-  at.add_exception %w{test.log .git dummy/tmp}
+  at.add_exception %w{test.log .git dummy/tmp development.log dummy}
 end
