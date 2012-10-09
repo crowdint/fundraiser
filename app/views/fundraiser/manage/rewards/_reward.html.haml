@@ -2,3 +2,5 @@
   %td= reward.title
   %td= reward.minimum_pledge
   %td= link_to 'Edit', fundraiser.edit_manage_reward_path(reward)
+  %td= link_to 'Delete', fundraiser.manage_reward_path(reward),
+          :method => :delete, :confirm => "Are you sure?"

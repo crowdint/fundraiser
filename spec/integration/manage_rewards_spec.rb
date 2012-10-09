@@ -29,9 +29,10 @@ describe "Manage rewards", :type => :integration do
           :minimum_pledge => 30
     end
 
+    before { reward }
+
     describe "edit" do
       it "updates the reward" do
-        reward
         visit fundraiser.manage_rewards_path
 
         within "#reward_#{reward.id}" do
@@ -50,6 +51,17 @@ describe "Manage rewards", :type => :integration do
         page.should have_content '50'
       end
     end
-  end
 
+    describe "delete" do
+      it "deletes the reward" do
+        visit fundraiser.manage_rewards_path
+
+        within "#reward_#{reward.id}" do
+          click_link 'Delete'
+        end
+
+        page.should_not have_content 'Reward Title'
+      end
+    end
+  end
 end

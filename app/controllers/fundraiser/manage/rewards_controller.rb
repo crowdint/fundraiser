@@ -1,5 +1,5 @@
 class Fundraiser::Manage::RewardsController < Fundraiser::Manage::BaseController
-  before_filter :load_reward, :only => [ :edit, :update ]
+  before_filter :load_reward, :only => [ :edit, :update, :destroy ]
 
   def index
     @rewards = Fundraiser::Reward.all
@@ -23,10 +23,15 @@ class Fundraiser::Manage::RewardsController < Fundraiser::Manage::BaseController
 
   def update
     if @reward.update_attributes(reward_params)
-    	redirect_to fundraiser.manage_rewards_path, :notice => "Reward was succesfully updated"
+      redirect_to fundraiser.manage_rewards_path, :notice => "Reward was succesfully updated"
     else
-    	render :action => :edit
+      render :action => :edit
     end
+  end
+
+  def destroy
+    @reward.destroy
+    redirect_to manage_rewards_path, :notice => "Reward was succesfully deleted"
   end
 
   private
