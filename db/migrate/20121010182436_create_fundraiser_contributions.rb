@@ -3,7 +3,7 @@ class CreateFundraiserContributions < ActiveRecord::Migration
     create_table :fundraiser_contributions do |t|
       t.string :email
       t.string :reference
-      t.text :transaction
+      t.text :request_params
       t.integer :amount
 
       t.timestamps
