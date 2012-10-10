@@ -1,4 +1,6 @@
 %h1 Choose a Reward
 
+%h2 Total Contribution: #{number_to_currency Fundraiser::Contribution.total_contributed}
+
 %table
   = render @rewards

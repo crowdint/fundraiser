@@ -17,5 +17,9 @@ module Fundraiser
       amount = amount_with_currency.split(' ').last
       amount.to_f * 100
     end
+
+  	def self.total_contributed
+  		sum(:amount) / 100
+  	end
   end
 end
