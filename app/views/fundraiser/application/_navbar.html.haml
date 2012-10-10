@@ -1,3 +1,6 @@
 .navbar
   .navbar-inner
     = link_to 'Fundraiser', '#', :class => 'brand'
+    %ul.nav
+      - if current_user
+        %li= link_to 'Sign Out', fundraiser.destroy_user_session_path
