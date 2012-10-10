@@ -6,6 +6,7 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 
 require 'faker'
+require 'vcr'
 
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 
@@ -45,4 +46,10 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/support/vcr_cassettes'
+  c.default_cassette_options = { :record => :new_episodes }
+  c.hook_into :webmock
 end
