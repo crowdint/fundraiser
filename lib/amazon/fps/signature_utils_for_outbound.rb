@@ -102,13 +102,14 @@ module Amazon
        CERTIFICATE_URL_ROOT << " or " << CERTIFICATE_URL_ROOT_SANDBOX << "."
      end
 
-     Rails.logger.info verify_signature_request = verify_signature_request + ACTION_PARAM +
+     verify_signature_request = verify_signature_request + ACTION_PARAM +
        END_POINT_PARAM +
        SignatureUtilsForOutbound::urlencode(url_end_point) +
        VERSION_PARAM_VALUE +
        HTTP_PARAMS_PARAM +
        SignatureUtilsForOutbound::urlencode(SignatureUtilsForOutbound::get_http_params(parameters))
-     Rails.logger.info verify_signature_response = SignatureUtilsForOutbound::get_http_data(verify_signature_request)
+
+     verify_signature_response = SignatureUtilsForOutbound::get_http_data(verify_signature_request)
 
      # parse the response
      document = REXML::Document.new(verify_signature_response)

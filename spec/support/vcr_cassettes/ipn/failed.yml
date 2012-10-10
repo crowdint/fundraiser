@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://fps.sandbox.amazonaws.com/?Action=VerifySignature&HttpParameters=paymentReason=PLEDGE%2520%2524125%2520OR%2520MORE%26signatureMethod=RSA-SHA1%26transactionAmount=USD%2520125.000000%26transactionId=1794K5NZC4NFV8AQF3PQ69I1IPHG98K3QCQ%26status=PR%26buyerEmail=aws%2540crowdint.com%26referenceId=PLEDGE%2520%2524125%2520OR%2520MORE%26recipientEmail=padillad%2540gmail.com%26transactionDate=1349848849%26buyerName=Crowd%2520Interactive%26operation=reserve%26recipientName=Test%2520Business%26signatureVersion=2%26certificateUrl=https%253A%252F%252Ffps.sandbox.amazonaws.com%252Fcerts%252F090911%252FPKICert.pem%253FrequestId%253D15n5n843ogdopypeeyc9zimnbzsj44f0eev0n0xbrobpxdl%26paymentMethod=CC%26signature=XWXAk5zDqEmYQ%252F%252FEMNlgrS%252BhN6euchqHwY2k2qn77sdYQyc7c3kWA91I71e919keqzmcKUv18D%252BJ%250Az%252FY7cW9sCw6bnl0HaI834YrNwuh6eEaG6QE4GRI%252FHWkUFsfWwsKPAMF1DLLeOU5L%252Fe%252FTaUbPmhhC%250AgOC8Kdin9QNp%252FkgBsWw%253D&UrlEndPoint=http://crowdraiser.herokuapp.com/ipns&Version=2008-09-17
+    uri: https://fps.sandbox.amazonaws.com/?Action=VerifySignature&HttpParameters=paymentReason=PLEDGE%2520%2524125%2520OR%2520MORE%26signatureMethod=RSA-SHA1%26transactionAmount=USD%2520125.000000%26transactionId=1794K5NZC4NFV8AQF3PQ69I1IPHG98K3QCQ%26status=PR%26buyerEmail=aws%2540crowdint.com%26referenceId=1%26recipientEmail=padillad%2540gmail.com%26transactionDate=1349848849%26buyerName=Crowd%2520Interactive%26operation=reserve%26recipientName=Test%2520Business%26signatureVersion=2%26certificateUrl=https%253A%252F%252Ffps.sandbox.amazonaws.com%252Fcerts%252F090911%252FPKICert.pem%253FrequestId%253D15n5n843ogdopypeeyc9zimnbzsj44f0eev0n0xbrobpxdl%26paymentMethod=CC%26signature=XWXAk5zDqEmYQ%252F%252FEMNlgrS%252BhN6euchqHwY2k2qn77sdYQyc7c3kWA91I71e919keqzmcKUv18D%252BJ%250Az%252FY7cW9sCw6bnl0HaI834YrNwuh6eEaG6QE4GRI%252FHWkUFsfWwsKPAMF1DLLeOU5L%252Fe%252FTaUbPmhhC%250AgOC8Kdin9QNp%252FkgBsWw%253D&UrlEndPoint=http://crowdraiser.herokuapp.com/ipns&Version=2008-09-17
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Wed, 10 Oct 2012 06:32:44 GMT
+      - Wed, 10 Oct 2012 17:54:41 GMT
       Cneonction:
       - close
       Server:
@@ -29,7 +29,7 @@ http_interactions:
       string: ! '<?xml version="1.0"?>
 
         <Response><Errors><Error><Code>InvalidSignature</Code><Message>The request
-        signature we calculated does not match the signature you provided.</Message></Error></Errors><RequestID>9d0dbd60-7ebe-4927-94f3-0c93ab7b33da</RequestID></Response>'
+        signature we calculated does not match the signature you provided.</Message></Error></Errors><RequestID>d0aa42c9-37b7-4cf9-adb3-91b81c5e744b</RequestID></Response>'
     http_version: 
-  recorded_at: Wed, 10 Oct 2012 06:32:45 GMT
+  recorded_at: Wed, 10 Oct 2012 17:54:42 GMT
 recorded_with: VCR 2.2.5
