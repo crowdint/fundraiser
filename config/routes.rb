@@ -9,7 +9,7 @@ Fundraiser::Engine.routes.draw do
     resources :rewards
   end
 
-  resources :rewards, :only => :index do
-    resources :pledges, :only => [ :new, :create, :show ]
-  end
+  resources :rewards, :only => :index
+  resource :thanks, :only => :show
+  resources :ipns
 end

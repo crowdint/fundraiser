@@ -4,7 +4,9 @@
   %td
     :plain
       <form action="#{Fundraiser::Settings.amazon_checkout_url}" method="post">
-        <input type="hidden" name="ipnUrl" value="#{Fundraiser::Settings.amazon_ipn_url}" >
+        <input type="hidden" name="ipnUrl" value="#{fundraiser.ipns_url}" >
+        <input type="hidden" name="returnUrl" value="#{fundraiser.thanks_url}" >
+        <input type="hidden" name="abandonUrl" value="#{fundraiser.rewards_url}" >
         <input type="hidden" name="processImmediate" value="0" >
         <input type="hidden" name="accessKey" value="#{Fundraiser::Settings.amazon_access_key}" >
         <input type="hidden" name="collectShippingAddress" value="0" >
