@@ -12,7 +12,7 @@
         <input type="hidden" name="collectShippingAddress" value="0" >
         <input type="hidden" name="isDonationWidget" value="0" >
         <input type="hidden" name="amazonPaymentsAccountId" value="#{Fundraiser::Settings.amazon_payments_account_id}" >
-        <input type="hidden" name="referenceId" value="#{reward.title}" >
+        <input type="hidden" name="referenceId" value="#{reward.id}" >
         <input type="hidden" name="cobrandingStyle" value="logo" >
         <input type="hidden" name="immediateReturn" value="1" >
         <input type="hidden" name="amount" value="USD #{reward.minimum_pledge}" >

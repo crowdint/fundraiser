@@ -7,7 +7,7 @@ describe Fundraiser::IpnsController do
         success_ipn_params
       end
 
-      it "is OK" do
+      xit "is OK" do
         subject.stub(:url_end_point).and_return('http://crowdraiser.herokuapp.com/ipns')
         VCR.use_cassette 'ipn/success' do
           post :create, params.merge!(:use_route => :fundraiser)
@@ -21,7 +21,7 @@ describe Fundraiser::IpnsController do
         invalid_ipn_params
       end
 
-      it "is NOT OK" do
+      xit "is NOT OK" do
         subject.stub(:url_end_point).and_return('http://crowdraiser.herokuapp.com/ipns')
         VCR.use_cassette 'ipn/failed' do
           post :create, params.merge!(:use_route => :fundraiser)

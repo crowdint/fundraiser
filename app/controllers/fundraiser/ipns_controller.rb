@@ -3,6 +3,7 @@ module Fundraiser
     def create
       aws_access_key = ENV['FPS_AWS_ACCESS_KEY_ID']
       aws_secret_key = ENV['FPS_AWS_SECRET_ACCESS_KEY']
+      Rails.logger.info params
 
       utils = Amazon::FPS::SignatureUtilsForOutbound.new(aws_access_key, aws_secret_key)
 
