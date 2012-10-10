@@ -7,7 +7,6 @@
         <input type="hidden" name="ipnUrl" value="#{Fundraiser::Settings.amazon_ipn_url}" >
         <input type="hidden" name="processImmediate" value="0" >
         <input type="hidden" name="accessKey" value="#{Fundraiser::Settings.amazon_access_key}" >
-        <input type="hidden" name="signatureMethod" value="HmacSHA256" >
         <input type="hidden" name="collectShippingAddress" value="0" >
         <input type="hidden" name="isDonationWidget" value="0" >
         <input type="hidden" name="amazonPaymentsAccountId" value="#{Fundraiser::Settings.amazon_payments_account_id}" >
@@ -16,8 +15,6 @@
         <input type="hidden" name="immediateReturn" value="1" >
         <input type="hidden" name="amount" value="USD #{reward.minimum_pledge}" >
         <input type="hidden" name="description" value="#{reward.title}" >
-        <input type="hidden" name="signatureVersion" value="2" >
-        <input type="hidden" name="signature" value="#{Fundraiser::Settings.amazon_signature}" >
         <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/beige_small_paynow_withmsg_whitebg.gif" border="0">
       </form>
 
