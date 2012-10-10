@@ -9,6 +9,10 @@ describe Fundraiser::IpnsController do
 
       it "is OK" do
         subject.stub(:url_end_point).and_return('http://crowdraiser.herokuapp.com/ipns')
+        valid_params = params.dup
+        valid_params.delete("controller")
+        valid_params.delete("action")
+        Fundraiser::Contribution.should_receive(:create_from_amazon_ipn).with(valid_params)
         VCR.use_cassette 'ipn/success' do
           post :create, params.merge!(:use_route => :fundraiser)
         end

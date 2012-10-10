@@ -10,6 +10,7 @@ module Fundraiser
       params.delete :action
 
       if utils.validate_request(:parameters => params, :url_end_point => url_end_point, :http_method => "POST")
+        Contribution.create_from_amazon_ipn params
         render :text => "OK"
       else
         render :text => "NOT OK"
