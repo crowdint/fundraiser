@@ -1,5 +1,5 @@
 module Fundraiser
-  class Manage::SettingsController < ApplicationController
+  class Manage::SettingsController < Fundraiser::Manage::BaseController
     def edit
       @settings = Settings.new
     end
