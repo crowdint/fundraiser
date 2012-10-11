@@ -1,5 +1,7 @@
 # Fundraiser
 
+[![Build Status](https://secure.travis-ci.org/crowdint/fundraiser.png)](http://travis-ci.org/crowdint/fundraiser)
+
 Mountable Engine to set up a Crowdfunding app. Uses Amazon Simplepay to collect
 payments.
 
