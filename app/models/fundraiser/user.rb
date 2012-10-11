@@ -8,5 +8,9 @@ module Fundraiser
     def manager!
       update_attribute :is_manager, true
     end
+
+    def is_publisher?
+      is_manager
+    end
   end
 end

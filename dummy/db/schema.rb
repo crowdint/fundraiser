@@ -11,7 +11,48 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010182436) do
+ActiveRecord::Schema.define(:version => 20121011042820) do
+
+  create_table "crowdblog_assets", :force => true do |t|
+    t.integer  "post_id"
+    t.string   "attachment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "crowdblog_posts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "permalink"
+    t.datetime "published_at"
+    t.integer  "author_id"
+    t.string   "state"
+    t.integer  "publisher_id"
+    t.boolean  "ready_for_review"
+    t.datetime "marked_for_review_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "crowdblog_users", :force => true do |t|
+    t.string   "name"
+    t.boolean  "is_publisher"
+    t.string   "email",                :default => "", :null => false
+    t.string   "encrypted_password",   :default => "", :null => false
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",        :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "authentication_token"
+    t.string   "gravatar_alias"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
+  add_index "crowdblog_users", ["authentication_token"], :name => "index_crowdblog_users_on_authentication_token", :unique => true
+  add_index "crowdblog_users", ["email"], :name => "index_crowdblog_users_on_email", :unique => true
 
   create_table "fundraiser_contributions", :force => true do |t|
     t.string   "email"
@@ -62,5 +103,26 @@ ActiveRecord::Schema.define(:version => 20121010182436) do
   end
 
   add_index "fundraiser_users", ["email"], :name => "index_fundraiser_users_on_email", :unique => true
+
+  create_table "versions", :force => true do |t|
+    t.integer  "versioned_id"
+    t.string   "versioned_type"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "user_name"
+    t.text     "modifications"
+    t.integer  "number"
+    t.integer  "reverted_from"
+    t.string   "tag"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "versions", ["created_at"], :name => "index_versions_on_created_at"
+  add_index "versions", ["number"], :name => "index_versions_on_number"
+  add_index "versions", ["tag"], :name => "index_versions_on_tag"
+  add_index "versions", ["user_id", "user_type"], :name => "index_versions_on_user_id_and_user_type"
+  add_index "versions", ["user_name"], :name => "index_versions_on_user_name"
+  add_index "versions", ["versioned_id", "versioned_type"], :name => "index_versions_on_versioned_id_and_versioned_type"
 
 end

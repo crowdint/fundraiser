@@ -4,5 +4,6 @@
     %ul.nav
       - if current_user
         %li= link_to 'Manage Rewards', fundraiser.manage_rewards_path
+        %li= link_to 'Manage Blog', crowdblog.posts_path
         %li= link_to 'Settings', fundraiser.edit_manage_settings_path
         %li= link_to 'Sign Out', fundraiser.destroy_user_session_path
