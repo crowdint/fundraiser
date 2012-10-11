@@ -2,7 +2,5 @@
   .navbar-inner
     = link_to 'Fundraiser', fundraiser.root_path, :class => 'brand'
     %ul.nav
-      - if current_user
-        %li= link_to 'Manage Rewards', fundraiser.manage_rewards_path
-        %li= link_to 'Settings', fundraiser.edit_manage_settings_path
-        %li= link_to 'Sign Out', fundraiser.destroy_user_session_path
+      %li= link_to 'Manage Rewards', fundraiser.manage_rewards_path
+      %li= link_to 'Settings', fundraiser.edit_manage_settings_path

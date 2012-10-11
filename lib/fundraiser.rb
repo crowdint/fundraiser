@@ -1,5 +1,4 @@
 require "fundraiser/engine"
-require "devise"
 require "haml-rails"
 require "persistent_settings"
 require "amazon/fps/signature_utils"
@@ -13,8 +12,3 @@ require "amazon/fps/widget"
 #  No idea how it will work on other platforms
 #
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-
-
-module Fundraiser
-  autoload :Devise, 'fundraiser/devise/failure_app'
-end
