@@ -2,7 +2,9 @@ require "fundraiser/engine"
 require "devise"
 require "haml-rails"
 require "persistent_settings"
+require "amazon/fps/signature_utils"
 require "amazon/fps/signature_utils_for_outbound"
+require "amazon/fps/widget"
 
 #TODO: This line is here due a Heroku issue:
 #

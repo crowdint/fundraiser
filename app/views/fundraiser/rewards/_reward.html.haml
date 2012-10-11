@@ -2,21 +2,4 @@
   %h2= "#{reward.title} (#{number_to_currency(reward.minimum_pledge)})"
   .description.lead= reward.description
   .buy
-    :plain
-      <form action="#{Fundraiser::Settings.amazon_checkout_url}" method="post">
-        <input type="hidden" name="ipnUrl" value="#{fundraiser.ipns_url}" >
-        <input type="hidden" name="returnUrl" value="#{fundraiser.thanks_url}" >
-        <input type="hidden" name="abandonUrl" value="#{fundraiser.rewards_url}" >
-        <input type="hidden" name="processImmediate" value="0" >
-        <input type="hidden" name="accessKey" value="#{Fundraiser::Settings.amazon_access_key}" >
-        <input type="hidden" name="collectShippingAddress" value="0" >
-        <input type="hidden" name="isDonationWidget" value="0" >
-        <input type="hidden" name="amazonPaymentsAccountId" value="#{Fundraiser::Settings.amazon_payments_account_id}" >
-        <input type="hidden" name="referenceId" value="#{reward.id}" >
-        <input type="hidden" name="cobrandingStyle" value="logo" >
-        <input type="hidden" name="immediateReturn" value="1" >
-        <input type="hidden" name="amount" value="USD #{reward.minimum_pledge}" >
-        <input type="hidden" name="description" value="#{reward.title}" >
-        <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/beige_small_paynow_withmsg_whitebg.gif" border="0">
-      </form>
-
+    = simplepay_button(reward)
