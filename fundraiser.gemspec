@@ -7,11 +7,11 @@ require "fundraiser/version"
 Gem::Specification.new do |s|
   s.name        = "fundraiser"
   s.version     = Fundraiser::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Fundraiser."
-  s.description = "TODO: Description of Fundraiser."
+  s.authors     = ["David Padilla"]
+  s.email       = ["david@crowdint.com"]
+  s.homepage    = "https://github.com/crowdint/fundraiser"
+  s.summary     = "Mountable Engine to set up a Crowdfunding app"
+  s.description = "Mountable Engine to set up a Crowdfunding app"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
