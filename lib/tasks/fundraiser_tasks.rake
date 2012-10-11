@@ -7,7 +7,7 @@ namespace :fundraiser do
 
   desc "create a fundraiser manager user"
   task(:manager, :email, :password) do |t, args|
-    Rake::Task[:environment]
+    Rake::Task[:environment].execute
     u = Fundraiser::User.new
     u.email = args[:email]
     u.password = args[:password]
