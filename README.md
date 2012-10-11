@@ -3,6 +3,8 @@
 Mountable Engine to set up a Crowdfunding app. Uses Amazon Simplepay to collect
 payments.
 
+Please, refer to the wiki for guidance on how to get an Amazon AWS account.
+
 ## Requirements
 
 * Rails 3.2+
