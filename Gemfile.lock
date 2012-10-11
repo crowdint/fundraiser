@@ -1,19 +1,10 @@
-GIT
-  remote: git://github.com/dabit/persistent_settings.git
-  revision: 2d4dfb967af8961595596c142ecc2c209da436c7
-  branch: 1-3
-  specs:
-    persistent_settings (1.3.0)
-      activerecord (~> 3.0)
-      railties (~> 3.0)
-
 PATH
   remote: .
   specs:
     fundraiser (0.0.1)
       devise (~> 2.1.2)
       haml-rails (~> 0.3.5)
-      persistent_settings
+      persistent_settings (~> 1.3.0)
       rails (~> 3.2.8)
 
 GEM
@@ -99,6 +90,9 @@ GEM
     multi_json (1.3.6)
     nokogiri (1.5.5)
     orm_adapter (0.4.0)
+    persistent_settings (1.3.0)
+      activerecord (~> 3.0)
+      railties (~> 3.0)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -175,7 +169,6 @@ DEPENDENCIES
   fundraiser!
   jquery-rails
   launchy
-  persistent_settings!
   rspec-rails
   sqlite3
   vcr
