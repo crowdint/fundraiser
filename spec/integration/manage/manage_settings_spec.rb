@@ -3,6 +3,7 @@ require 'spec_helper'
 describe "Manage settings", :type => :integration do
   context "Manager User" do
     before do
+      Fundraiser::Settings.funding_goal = 300
       manager_user_is_logged_in
     end
   end
