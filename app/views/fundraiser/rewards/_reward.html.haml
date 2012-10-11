@@ -1,7 +1,7 @@
-= content_tag_for :tr, reward do
-  %td= reward.title
-  %td= reward.description
-  %td
+= div_for reward, :class => "span6" do
+  %h2= "#{reward.title} (#{number_to_currency(reward.minimum_pledge)})"
+  .description= reward.description
+  .buy
     :plain
       <form action="#{Fundraiser::Settings.amazon_checkout_url}" method="post">
         <input type="hidden" name="ipnUrl" value="#{fundraiser.ipns_url}" >

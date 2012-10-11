@@ -1,7 +1,7 @@
 Fundraiser::Engine.routes.draw do
   devise_for :users, :class_name => "Fundraiser::User", :module => 'fundraiser/devise'
 
-  root :to => 'home#show'
+  root :to => 'rewards#index'
 
   namespace :manage do
     root :to => 'rewards#index'
