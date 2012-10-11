@@ -2,11 +2,12 @@ module Fundraiser
   class Settings < ActiveRecord::Base
     include Persistent::Settings
 
-    AMAZON_SETTINGS = [ :amazon_access_key, :amazon_payments_account_id, :amazon_signature ]
+    AMAZON_SETTINGS = [ :aws_access_key, :aws_secret_key ]
+    GENERAL_SETTINGS = [ :funding_goal, :funding_end_date ]
 
     attr_accessible :var, :value
 
-    AMAZON_SETTINGS.each do |column|
+    (AMAZON_SETTINGS + GENERAL_SETTINGS).each do |column|
       attr_accessor column
       define_method column do
         Fundraiser::Settings.send(column)
@@ -32,5 +33,7 @@ module Fundraiser
         end
       end
     end
+
+    load_from_persistance!
   end
 end
