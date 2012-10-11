@@ -34,6 +34,6 @@ module Fundraiser
       end
     end
 
-    load_from_persistance!
+    load_from_persistance
   end
 end
