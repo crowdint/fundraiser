@@ -30,7 +30,7 @@ module Amazon
       end
 
       def self.get_paynow_widget_form(form_hidden_inputs)
-        form = "<form action=\"" + @@service_end_point + "\" method=\"" + @@http_method + "\">\n"
+        form = "<form action=\"" + Fundraiser::Settings.amazon_checkout_url + "\" method=\"" + @@http_method + "\">\n"
         form += "<input type=\"image\" src=\"https://authorize.payments-sandbox.amazon.com/pba/images/payNowButton.png\" border=\"0\">\n"
         form_hidden_inputs.each { |k,v|
           form += "<input type=\"hidden\" name=\"" + k + "\" value=\"" + v + "\" >\n"
@@ -39,7 +39,7 @@ module Amazon
       end
 
       def self.widget(amount, title, reward_id, return_url, ipn_url)
-        uri = URI.parse(@@service_end_point)
+        uri = URI.parse(Fundraiser::Settings.amazon_checkout_url)
         params = get_paynow_widget_params(amount, title, reward_id.to_s, "1",
                                           return_url, nil, "0",
                                           ipn_url, "logo", "2", Amazon::FPS::SignatureUtils::HMAC_SHA256_ALGORITHM)
