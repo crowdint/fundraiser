@@ -5,6 +5,8 @@ require "amazon/fps/signature_utils"
 require "amazon/fps/signature_utils_for_outbound"
 require "amazon/fps/widget"
 
+require "generators/fundraiser/views_generator"
+
 #TODO: This line is here due a Heroku issue:
 #
 #  http://stackoverflow.com/questions/11703679/opensslsslsslerror-on-heroku

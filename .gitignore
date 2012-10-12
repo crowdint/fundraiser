@@ -6,3 +6,4 @@ dummy/log/*.log
 dummy/tmp/
 dummy/.sass-cache
 tags
+tmp
