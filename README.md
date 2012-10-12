@@ -7,6 +7,8 @@ payments.
 
 Please, refer to the wiki for guidance on how to get an Amazon AWS account.
 
+You can see an example implementation on [this Rails app source code](https://github.com/crowdint/fundraiser-app).
+
 ## Requirements
 
 * Rails 3.2+
