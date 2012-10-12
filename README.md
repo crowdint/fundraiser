@@ -15,7 +15,7 @@ Please, refer to the wiki for guidance on how to get an Amazon AWS account.
 
 Gemfile
 
-    gem 'fundraiser'
+    gem 'fundraiser', '1.0.0.beta'
 
 Bundle
 
