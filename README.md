@@ -35,11 +35,28 @@ Mount the engine on routes.rb
       mount Fundraiser::Engine => "/fundraiser"
     end
 
-Create an admin user
+## Authentication
 
-    rake fundraiser:manager[email@test.com,123456]
+### Devise
 
-Browse to the URL where you mounted the engine and set it up.
+To authenticate using devise, simply install it and create a User model. It
+should run out of the box.
+
+Gemfile:
+
+    gem 'devise'
+
+Run:
+
+    rails generator devise user
+
+    rake db:migrate
+
+## Manage
+
+Use the console to create your first user and browse to /manage
+
+Log in and enjoy.
 
 # About the author
 
