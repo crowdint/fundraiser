@@ -2,6 +2,7 @@
 
 %h2 Total Contribution: #{number_to_currency Fundraiser::Contribution.total_contributed}
 %h3 of #{number_to_currency Fundraiser::Settings.funding_goal} until #{Fundraiser::Settings.funding_end_date}
+%h4 Backed by #{Fundraiser::Contribution.count} people
 
 #rewards
   .row= render @rewards
