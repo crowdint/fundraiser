@@ -10,7 +10,8 @@ module Fundraiser
 
     def simplepay_button(reward)
       amount = "USD #{reward.minimum_pledge}"
-      Amazon::FPS::Widget.widget amount, reward.title, reward.id, fundraiser.thanks_url, fundraiser.ipns_url
+      Amazon::FPS::Widget.widget amount, reward.title, reward.id,
+          fundraiser.thanks_url, fundraiser.ipns_url, Settings.amazon_ask_for_shipping
     end
   end
 end

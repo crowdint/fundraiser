@@ -38,10 +38,10 @@ module Amazon
         form += "</form>\n"
       end
 
-      def self.widget(amount, title, reward_id, return_url, ipn_url)
+      def self.widget(amount, title, reward_id, return_url, ipn_url, ask_for_shipping="0")
         uri = URI.parse(Fundraiser::Settings.amazon_checkout_url)
         params = get_paynow_widget_params(amount, title, reward_id.to_s, "1",
-                                          return_url, nil, "0",
+                                          return_url, nil, ask_for_shipping,
                                           ipn_url, "logo", "2", Amazon::FPS::SignatureUtils::HMAC_SHA256_ALGORITHM)
 
         signature = Amazon::FPS::SignatureUtils.sign_parameters({:parameters => params,
