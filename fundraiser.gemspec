@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.2.8"
   s.add_dependency "haml-rails", "~> 0.3.5"
   s.add_dependency "persistent_settings", "~> 1.3.0"
+  s.add_dependency "strong_parameters"
 
   s.add_development_dependency "autotest"
   s.add_development_dependency "autotest-growl"

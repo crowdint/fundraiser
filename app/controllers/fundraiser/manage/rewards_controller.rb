@@ -36,7 +36,7 @@ class Fundraiser::Manage::RewardsController < Fundraiser::Manage::BaseController
 
   private
   def reward_params
-    params[:reward]
+    params.require(:reward).permit(:description, :minimum_pledge, :title)
   end
 
   def load_reward

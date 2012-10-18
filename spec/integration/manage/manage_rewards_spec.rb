@@ -24,9 +24,12 @@ describe "Manage rewards", :type => :integration do
 
     context "reward exists" do
       let(:reward) do
-        Fundraiser::Reward.create! :title => Faker::Lorem.sentence,
-          :description => Faker::Lorem.paragraph,
-          :minimum_pledge => 30
+        reward                = Fundraiser::Reward.new
+        reward.title          = Faker::Lorem.sentence
+        reward.description    = Faker::Lorem.paragraph
+        reward.minimum_pledge = 30
+        reward.save!
+        reward
       end
 
       before { reward }
