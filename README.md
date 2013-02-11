@@ -50,7 +50,7 @@ Gemfile:
 
 Run:
 
-    rails generator devise user
+    rails generate devise user
 
     rake db:migrate
 
