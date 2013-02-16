@@ -2,12 +2,12 @@ module Fundraiser
   class Settings < ActiveRecord::Base
     include Persistent::Settings
 
-    AMAZON_SETTINGS = [ :aws_access_key, :aws_secret_key ]
+    STRIPE_SETTINGS = [ :stripe_secret_key, :stripe_public_key ]
     GENERAL_SETTINGS = [ :funding_goal, :funding_end_date ]
 
     attr_accessible :var, :value
 
-    (AMAZON_SETTINGS + GENERAL_SETTINGS).each do |column|
+    (STRIPE_SETTINGS + GENERAL_SETTINGS).each do |column|
       attr_accessor column
       define_method column do
         Fundraiser::Settings.send(column)
@@ -25,7 +25,7 @@ module Fundraiser
     end
 
     def self.amazon!
-      Fundraiser::Settings::AMAZON_SETTINGS.each do |setting|
+      Fundraiser::Settings::STRIPE_SETTINGS.each do |setting|
         begin
           Fundraiser::Settings.send setting
         rescue

@@ -8,6 +8,7 @@ Fundraiser::Engine.routes.draw do
   end
 
   resources :rewards, :only => :index
+  resources :contributions
   resource :thanks, :only => :show
   resources :ipns
 end

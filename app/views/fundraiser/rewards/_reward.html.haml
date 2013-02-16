@@ -1,5 +1,3 @@
-= div_for reward, :class => "span6" do
-  %h2= "#{reward.title} (#{number_to_currency(reward.minimum_pledge)})"
-  .description.lead= reward.description
-  .buy
-    = simplepay_button(reward)
+%h4= "#{reward.title} (#{number_to_currency(reward.minimum_pledge)})"
+.description.lead= reward.description
+

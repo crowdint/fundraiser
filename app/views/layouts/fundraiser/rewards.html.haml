@@ -1,0 +1,52 @@
+!!!
+%html
+  %head
+    %title Fundraiser
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css"
+    = stylesheet_link_tag    "fundraiser/application", :media => "all"
+    = javascript_include_tag "fundraiser/application"
+    = csrf_meta_tags
+    %script{:src => "https://js.stripe.com/v1/", :type => "text/javascript"}
+    :javascript
+      // this identifies your website in the createToken call below
+      Stripe.setPublishableKey("#{Fundraiser::Settings.stripe_public_key}");
+  %body
+    .container
+      .row= render 'fundraiser/application/navbar'
+      .row= render 'fundraiser/application/alerts'
+      .row= yield
+    :javascript
+      $(document).ready(function() {
+        $("#payment-form").submit(function(event) {
+          event.preventDefault();
+           // disable the submit button to prevent repeated clicks
+           $('.submit-button').attr("disabled", "disabled");
+
+           Stripe.createToken({
+             number: $('.card-number').val(),
+             cvc: $('.card-cvc').val(),
+             exp_month: $('.card-expiry-month').val(),
+             exp_year: $('.card-expiry-year').val()
+           }, stripeResponseHandler);
+
+           // prevent the form from submitting with the default action
+           return false;
+         });
+      });
+
+      function stripeResponseHandler(status, response) {
+        if (response.error) {
+          // show the errors on the form
+          $(".payment-errors").text(response.error.message);
+          $(".submit-button").removeAttr("disabled");
+        } else {
+          console.log('ccc');
+          var form$ = $("#payment-form");
+          // token contains id, last4, and card type
+          var token = response['id'];
+          // insert the token into the form so it gets submitted to the server
+          form$.append("<input type='hidden' name='contributor[stripeToken]' value='" + token + "'/>");
+          // and submit
+          form$.get(0).submit();
+        }
+      }

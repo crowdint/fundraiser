@@ -7,5 +7,9 @@ module Fundraiser
     validates :minimum_pledge, :numericality => true
 
     has_many :pledges
+
+    def amount
+      (minimum_pledge.to_f * 100).to_i
+    end
   end
 end
