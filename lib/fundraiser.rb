@@ -15,4 +15,4 @@ require "generators/fundraiser/views_generator"
 #
 #  No idea how it will work on other platforms
 #
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+# OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
