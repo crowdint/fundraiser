@@ -9,6 +9,7 @@
   .span6
     .buy
       %form#payment-form.form-horizontal{:action => '/contributions.js', :method => "POST", "data-remote" => 'true'}
+        .control-group.payment-errors
         .control-group
           %label.control-label Name
           .controls
