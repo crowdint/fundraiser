@@ -40,13 +40,12 @@
           $(".payment-errors").text(response.error.message);
           $(".submit-button").removeAttr("disabled");
         } else {
-          console.log('ccc');
           var form$ = $("#payment-form");
           // token contains id, last4, and card type
           var token = response['id'];
           // insert the token into the form so it gets submitted to the server
           form$.append("<input type='hidden' name='contributor[stripeToken]' value='" + token + "'/>");
           // and submit
-          form$.get(0).submit();
+          $.post('contributions.js', form$.serialize())
         }
       }
