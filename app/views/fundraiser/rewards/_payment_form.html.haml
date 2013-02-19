@@ -1,0 +1,43 @@
+.buy
+  .over
+    %p One moment please...
+  %form#payment-form.form-horizontal{:action => '/manage_contributions.js', :method => "POST", "data-remote" => 'true'}
+    .payment-errors
+    .control-group
+      %label.control-label
+        = image_tag 'name.png'
+      .controls
+        %input.name{:size => "20", :type => 'text', :name => 'contributor[name]'}/
+    .control-group
+      %label.control-label
+        = image_tag 'email.png'
+      .controls
+        %input.email{:size => "20", :type => 'text', :name => 'contributor[email]'}/
+    .control-group
+      %label.control-label
+        = image_tag 'reward.png'
+      .controls
+        = select_tag 'contributor[amount]', options_from_collection_for_select(@rewards, "amount", "title")
+    .control-group
+      %label.control-label
+        = image_tag 'card.png'
+      .controls
+        %input.card-number{:autocomplete => "off", :size => "20", :type => "text"}/
+    .control-group
+      %label.control-label
+        = image_tag 'cvc.png'
+      .controls
+        %input.card-cvc.span1{:autocomplete => "off", :size => "4", :type => "text"}/
+    .control-group
+      %label.control-label
+        = image_tag 'expiration.png'
+      .controls
+        %input.card-expiry-month.span1{:size => "2", :type => "text"}/
+        %input.card-expiry-year.span1{:size => "4", :type => "text"}/
+    .control-group.button
+      %button.submit-button{:type => "submit"}
+        %span
+        Submit Payment
+        %span
+
+

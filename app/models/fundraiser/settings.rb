@@ -34,6 +34,10 @@ module Fundraiser
       end
     end
 
+    def self.is_open?
+      DateTime.now <= (Fundraiser::Settings.funding_end_date.to_datetime + 23.hours + 59.minutes)
+    end
+
     load_from_persistance
   end
 end
