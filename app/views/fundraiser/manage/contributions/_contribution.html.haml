@@ -1,0 +1,15 @@
+= content_tag_for :tr, contribution do
+  %td= contribution.name
+  %td= contribution.email
+  %td= contribution.created_at.to_s :short
+  %td= number_to_currency contribution.human_amount
+  %td
+    - if contribution.charged?
+      = link_to 'Charged', '', class: 'btn btn-success disabled'
+    - else
+      = form_for [:manage, contribution], url: manage_contribution_transition_path, method: :post, html: {remote: true } do |f|
+        = f.hidden_field :id
+        = hidden_field_tag 'contribution[transition]', 'charge'
+        = submit_tag 'Charge', class: 'btn btn-danger'
+
+

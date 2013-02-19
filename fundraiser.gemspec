@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "persistent_settings", "~> 1.3.0"
   s.add_dependency "strong_parameters"
   s.add_dependency 'stripe'
+  s.add_dependency 'state_machine'
 
   s.add_development_dependency "autotest"
   s.add_development_dependency "autotest-growl"

@@ -1,10 +1,27 @@
 module Fundraiser
   class Contribution < ActiveRecord::Base
-    attr_accessible :amount, :email, :reference, :transaction, :name, :stripeToken
 
+    Stripe.api_key = Fundraiser::Settings.stripe_secret_key
+
+    attr_accessible :amount, :email, :reference, :transaction, :name, :stripeToken, :stripe_id
 
     serialize :request_params
-    after_create :stripe_charge
+
+    before_create :create_stripe_user
+
+    state_machine :state, :initial => :pending do
+      state :pending
+      state :charged
+
+      before_transition on: :charge do |contribution, transition|
+        contribution.stripe_charge
+      end
+
+      event :charge do
+        transition pending: :charged
+      end
+    end
+
 
     def self.create_from_amazon_ipn(params)
       create(
@@ -24,22 +41,30 @@ module Fundraiser
       sum(:amount) / 100
     end
 
-    def stripe_charge
-        # set your secret key: remember to change this to your live secret key in production
-        # see your keys here https://manage.stripe.com/account
-        Stripe.api_key = Fundraiser::Settings.stripe_secret_key
-
-        # get the credit card details submitted by the form
-        token = self.stripeToken
-
-        # create the charge on Stripe's servers - this will charge the user's card
-        charge = Stripe::Charge.create(
-          :amount => self.amount, # amount in cents, again
-          :currency => "usd",
-          :card => token,
-          :description => "#{self.name} -  #{self.email}"
-        )
+    def human_amount
+      self.amount / 100
     end
+
+    def create_stripe_user
+      token = self.stripeToken
+
+      customer = Stripe::Customer.create(
+        :card => token,
+        :description => "#{self.name} -  #{self.email}"
+      )
+
+      self.stripe_id = customer.id
+    end
+
+    def stripe_charge
+      Stripe::Charge.create(
+          :amount => self.amount,
+          :currency => "usd",
+          :customer => self.stripe_id
+      )
+    end
+
+
 
   end
 end

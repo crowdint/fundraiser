@@ -46,6 +46,6 @@
           // insert the token into the form so it gets submitted to the server
           form$.append("<input type='hidden' name='contributor[stripeToken]' value='" + token + "'/>");
           // and submit
-          $.post('contributions.js', form$.serialize())
+          $.post('manage/contributions.js', form$.serialize())
         }
       }
