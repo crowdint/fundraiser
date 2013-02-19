@@ -16,6 +16,8 @@
 .row
   .span6
     .buy
+      .over
+        %p One moment please...
       %form#payment-form.form-horizontal{:action => '/manage_contributions.js', :method => "POST", "data-remote" => 'true'}
         .payment-errors
         .control-group
