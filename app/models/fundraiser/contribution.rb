@@ -9,6 +9,10 @@ module Fundraiser
 
     before_create :create_stripe_user
 
+    validates :name,        presence: true
+    validates :email,       presence: true
+    validates :stripeToken, presence: true
+
     state_machine :state, :initial => :pending do
       state :pending
       state :charged

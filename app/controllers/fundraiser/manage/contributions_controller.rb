@@ -9,9 +9,8 @@ class Fundraiser::Manage::ContributionsController < Fundraiser::Manage::BaseCont
   def create
     @contribution = Fundraiser::Contribution.new params[:contributor]
 
-    if @contribution.save
-      respond_with @contribution
-    end
+    @contribution.save
+    respond_with @contribution
   end
 
   def transition
