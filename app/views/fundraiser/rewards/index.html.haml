@@ -2,7 +2,7 @@
   .span12
     %h1
       Total Contribution:
-      %span #{number_to_currency Fundraiser::Contribution.total_contributed}
+      %span.total #{number_to_currency Fundraiser::Contribution.total_contributed}
       of
       %span #{number_to_currency Fundraiser::Settings.funding_goal}
       until
@@ -10,7 +10,10 @@
 
 .row
   .span6
-    %h2 Backed by #{Fundraiser::Contribution.count} people
+    %h2
+      Backed by
+      %span.backers #{Fundraiser::Contribution.count}
+      people
   .span5.offset1
     %h2 Choose a Rewar
 .row
