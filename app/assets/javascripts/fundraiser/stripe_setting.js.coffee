@@ -16,8 +16,8 @@ $(document).ready ->
     Stripe.createToken
       number: $(".card-number").val()
       cvc: $(".card-cvc").val()
-      exp_month: $(".card-expiry-month").val()
-      exp_year: $(".card-expiry-year").val()
+      exp_month: $("#expires_on_2i option:selected").val()
+      exp_year: $("#expires_on_1i option:selected").val()
     , stripeResponseHandler
     false
 

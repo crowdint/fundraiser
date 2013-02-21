@@ -32,8 +32,7 @@
       %label.control-label
         = image_tag 'expiration.png'
       .controls
-        %input.card-expiry-month.span1{:size => "2", :type => "text"}/
-        %input.card-expiry-year.span1{:size => "4", :type => "text"}/
+        = date_select 'expires', 'on', {:discard_day => true, :date_separator => '/', :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_month_numbers => true}, class: 'select'
     .control-group.button
       %button.submit-button{:type => "submit"}
         %span
