@@ -51,13 +51,15 @@ module Fundraiser
 
     def create_stripe_user
       token = self.stripeToken
-
       customer = Stripe::Customer.create(
         :card => token,
         :description => "#{self.name} -  #{self.email}"
       )
-
       self.stripe_id = customer.id
+    rescue Stripe::CardError => e
+      logger.error "Stripe error while creating customer: #{e}"
+      errors.add :base, "There was a problem with your credit card."
+      false
     end
 
     def stripe_charge
